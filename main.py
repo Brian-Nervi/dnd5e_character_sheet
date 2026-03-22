@@ -1,5 +1,6 @@
 from inputchecks import background_check, class_check, name_check, race_check, stats_check
 import database
+import character
 
 
 def main():
@@ -34,6 +35,22 @@ def main():
     print("charisma?")
     while not stats_check(charisma := input()):
         print("Please enter a valid stat (a number between 6 and 18).")
+
+    print("Your character is being made...")
+    # Here we would create the character object and save it to a file or database, but for now we will just print the character sheet.
+    char = character.character(name, Class, background, race, int(strength), int(dexterity), int(constitution), int(intelligence), int(wisdom), int(charisma))
+    char.race_modifiers()
+    print("Name: " + char.name.capitalize())
+    print("Class: " + char.Class.capitalize())
+    print("Background: " + char.background.capitalize())
+    print("Race: " + char.race.capitalize())
+    print("Strength: " + str(char.strength))
+    print("Dexterity: " + str(char.dexterity))
+    print("Constitution: " + str(char.constitution))
+    print("Intelligence: " + str(char.intelligence))
+    print("Wisdom: " + str(char.wisdom))
+    print("Charisma: " + str(char.charisma))
+
 
 
 main()
