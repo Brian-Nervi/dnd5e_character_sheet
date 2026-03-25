@@ -12,103 +12,103 @@ races = {
 
 backgrounds = {
     "Acolyte": {
-        "skill_proficiencies": ["Insight", "Religion"],
+        "skill_proficiencies": ["insight", "religion"],
         "tools": [],
         "languages": ["two of your choice"],
         "equipment": ["a holy symbol", "a prayer book", "5 sticks of incense", "vestments", "common clothes"],
         "gold": 15
     },
     "Charlatan": {
-        "skill_proficiencies": ["Deception", "Performance"],
+        "skill_proficiencies": ["deception", "performance"],
         "tools": ["disguise kit", "forgery kit"],
         "languages": [],
-        "equipment": ["fine clothes", "disguise kit", "tools of con of choice"],
+        "equipment": ["fine clothes", "disguise kit", "choice of tools of con"],
         "gold": 15
     },
     "Criminal": {
-        "skill_proficiencies": ["Deception", "Stealth"],
-        "tools": ["one type of gaming set", "thieves' tools"],
+        "skill_proficiencies": ["deception", "stealth"],
+        "tools": ["choice of gaming set", "thieves' tools"],
         "languages": [],
         "equipment": ["a crowbar", "dark common clothes with hood"],
         "gold": 15
     },
     "Entertainer": {
-        "skill_proficiencies": ["Acrobatics", "Performance"],
-        "tools": ["disguise kit", "one type of musical instrument"],
+        "skill_proficiencies": ["acrobatics", "performance"],
+        "tools": ["disguise kit", "choice of musical instrument"],
         "languages": [],
-        "equipment": ["a musical instrument", "favor of an admirer", "costume"],
+        "equipment": ["choice of musical instrument", "favor of an admirer", "costume"],
         "gold": 15
     },
-    "Folk Hero": {
-        "skill_proficiencies": ["Animal Handling", "Survival"],
-        "tools": ["one type of artisan's tools", "vehicles (land)"],
+    "Folk hero": {
+        "skill_proficiencies": ["animal handling", "survival"],
+        "tools": ["choice of artisan's tools", "vehicles (land)"],
         "languages": [],
         "equipment": ["artisan's tools", "a shovel", "an iron pot", "common clothes"],
         "gold": 10
     },
-    "Guild Artisan": {
-        "skill_proficiencies": ["Insight", "Persuasion"],
-        "tools": ["one type of artisan's tools"],
+    "Guild artisan": {
+        "skill_proficiencies": ["insight", "persuasion"],
+        "tools": ["choice of artisan's tools"],
         "languages": ["one of your choice"],
         "equipment": ["artisan's tools", "letter of introduction", "traveler's clothes"],
         "gold": 15
     },
     "Hermit": {
-        "skill_proficiencies": ["Medicine", "Religion"],
+        "skill_proficiencies": ["medicine", "religion"],
         "tools": ["herbalism kit"],
         "languages": ["one of your choice"],
         "equipment": ["a winter blanket", "common clothes", "herbalism kit", "notes of study"],
         "gold": 5
     },
     "Noble": {
-        "skill_proficiencies": ["History", "Persuasion"],
-        "tools": ["one type of gaming set"],
+        "skill_proficiencies": ["history", "persuasion"],
+        "tools": ["choice of gaming set"],
         "languages": ["one of your choice"],
         "equipment": ["fine clothes", "signet ring", "scroll of pedigree"],
         "gold": 25
     },
     "Outlander": {
-        "skill_proficiencies": ["Athletics", "Survival"],
-        "tools": ["one type of musical instrument"],
+        "skill_proficiencies": ["athletics", "survival"],
+        "tools": ["choice of musical instrument"],
         "languages": ["one of your choice"],
         "equipment": ["a staff", "a hunting trap", "trophy from an animal", "traveler's clothes"],
         "gold": 10
     },
     "Sage": {
-        "skill_proficiencies": ["Arcana", "History"],
+        "skill_proficiencies": ["arcana", "history"],
         "tools": [],
         "languages": ["two of your choice"],
         "equipment": ["bottle of ink", "a quill", "a small knife", "letter from a dead colleague", "common clothes"],
         "gold": 10
     },
     "Sailor": {
-        "skill_proficiencies": ["Athletics", "Perception"],
+        "skill_proficiencies": ["athletics", "perception"],
         "tools": ["navigator's tools", "vehicles (water)"],
         "languages": [],
         "equipment": ["a belaying pin (club)", "50ft silk rope", "lucky charm", "common clothes"],
         "gold": 10
     },
     "Soldier": {
-        "skill_proficiencies": ["Athletics", "Intimidation"],
-        "tools": ["one type of gaming set", "vehicles (land)"],
+        "skill_proficiencies": ["athletics", "intimidation"],
+        "tools": ["choice of gaming set", "vehicles (land)"],
         "languages": [],
         "equipment": ["insignia of rank", "trophy from fallen enemy", "bone dice or deck of cards", "common clothes"],
         "gold": 10
     },
     "Urchin": {
-        "skill_proficiencies": ["Sleight of Hand", "Stealth"],
+        "skill_proficiencies": ["sleight of hand", "stealth"],
         "tools": ["disguise kit", "thieves' tools"],
         "languages": [],
         "equipment": ["a small knife", "map of your home city", "a pet mouse", "token of parents", "common clothes"],
         "gold": 10
     }
 }
-#simple weapon/ martial melee weapon/ musical instrument/ simple melee weapon/martial weapon
+ 
 classes = {
     "Artificer": {
         "hit_die": 8,
         "equipment": [
-            {"option": ["choice of two simple weapons"]},
+            "choice of two simple weapons",
             "light crossbow and 20 bolts",
             {"option": ["studded leather armor", "scale mail"]},
             "thieves' tools",
@@ -117,7 +117,7 @@ classes = {
         "proficiencies": {
             "armor": ["light", "medium", "shields"],
             "weapons": ["simple", "firearms"],
-            "tools": ["thieves' tools", "tinker's tools", "one type of artisan's tools"],
+            "tools": ["thieves' tools", "tinker's tools", "choice of artisan's tools"],
             "saving_throws": ["CON", "INT"],
             "skills": {"count": 2, "options": ["Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]}
         }
@@ -150,7 +150,7 @@ classes = {
         "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple", "hand crossbows", "longswords", "rapiers", "shortswords"],
-            "tools": ["three musical instruments of your choice"],
+            "tools": ["choice of musical intstrument","choice of musical intstrument","choice of musical intstrument"],
             "saving_throws": ["DEX", "CHA"],
             "skills": {"count": 3, "options": ["Any"]}
         }
@@ -216,7 +216,7 @@ classes = {
         "proficiencies": {
             "armor": ["none"],
             "weapons": ["simple", "shortswords"],
-            "tools": ["one type of artisan's tools or musical instrument"],
+            "tools": ["choice of one type of artisan's tools or choice ofmusical instrument"],
             "saving_throws": ["STR", "DEX"],
             "skills": {"count": 2, "options": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]}
         }
@@ -322,7 +322,6 @@ classes = {
             "skills": {"count": 2, "options": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]}
         }
     }
-    
 }
 
 languages = ["Common", "Dwarvish", "Elvish", "Giant", "Gnomish", "Goblin", "Halfling", "Orc", "Abyssal", "Celestial", "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Undercommon"]
@@ -341,3 +340,11 @@ weapons = {
 }
 
 musical_instruments = ["bagpipes", "drum", "dulcimer", "flute", "lute", "lyre", "horn", "pan flute", "shawm", "viol"]
+
+tools_of_con = ["disguise kit", "forgery kit", "choice of gaming set", "poker set"]
+
+gaming_sets = ["dice set", "dragonchess set", "playing card set", "three-dragon ante set"]
+
+skills = ["acrobatics", "animal handling", "arcana", "athletics", "deception", "history", "insight", "intimidation", "investigation", "medicine", "nature", "perception", "performance", "persuasion", "religion", "sleight of hand", "stealth", "survival"]
+
+tools = ["alchemist's supplies", "brewer's supplies", "calligrapher's supplies", "carpenter's tools", "cartographer's tools", "cobbler's tools", "cook's utensils", "glassblower's tools", "jeweler's tools", "leatherworker's tools", "mason's tools", "smith's tools", "tinker's tools", "weaver's tools", "woodcarver's tools"]
