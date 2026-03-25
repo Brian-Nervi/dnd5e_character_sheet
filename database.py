@@ -14,7 +14,7 @@ backgrounds = {
     "Acolyte": {
         "skill_proficiencies": ["insight", "religion"],
         "tools": [],
-        "languages": ["two of your choice"],
+        "languages": ["two extra"],
         "equipment": ["a holy symbol", "a prayer book", "5 sticks of incense", "vestments", "common clothes"],
         "gold": 15
     },
@@ -49,35 +49,35 @@ backgrounds = {
     "Guild artisan": {
         "skill_proficiencies": ["insight", "persuasion"],
         "tools": ["choice of artisan's tools"],
-        "languages": ["one of your choice"],
+        "languages": ["one extra"],
         "equipment": ["artisan's tools", "letter of introduction", "traveler's clothes"],
         "gold": 15
     },
     "Hermit": {
         "skill_proficiencies": ["medicine", "religion"],
         "tools": ["herbalism kit"],
-        "languages": ["one of your choice"],
+        "languages": ["one extra"],
         "equipment": ["a winter blanket", "common clothes", "herbalism kit", "notes of study"],
         "gold": 5
     },
     "Noble": {
         "skill_proficiencies": ["history", "persuasion"],
         "tools": ["choice of gaming set"],
-        "languages": ["one of your choice"],
+        "languages": ["one extra"],
         "equipment": ["fine clothes", "signet ring", "scroll of pedigree"],
         "gold": 25
     },
     "Outlander": {
         "skill_proficiencies": ["athletics", "survival"],
         "tools": ["choice of musical instrument"],
-        "languages": ["one of your choice"],
+        "languages": ["one extra"],
         "equipment": ["a staff", "a hunting trap", "trophy from an animal", "traveler's clothes"],
         "gold": 10
     },
     "Sage": {
         "skill_proficiencies": ["arcana", "history"],
         "tools": [],
-        "languages": ["two of your choice"],
+        "languages": ["two extra"],
         "equipment": ["bottle of ink", "a quill", "a small knife", "letter from a dead colleague", "common clothes"],
         "gold": 10
     },
@@ -118,8 +118,8 @@ classes = {
             "armor": ["light", "medium", "shields"],
             "weapons": ["simple", "firearms"],
             "tools": ["thieves' tools", "tinker's tools", "choice of artisan's tools"],
-            "saving_throws": ["CON", "INT"],
-            "skills": {"count": 2, "options": ["Arcana", "History", "Investigation", "Medicine", "Nature", "Perception", "Sleight of Hand"]}
+            "saving_throws": ["con", "int"],
+            "skills": {"count": 2, "options": ["arcana", "history", "investigation", "medicine", "nature", "perception", "sleight of hand"]}
         }
     },
     "Barbarian": {
@@ -134,8 +134,8 @@ classes = {
             "armor": ["light", "medium", "shields"],
             "weapons": ["simple", "martial"],
             "tools": [],
-            "saving_throws": ["STR", "CON"],
-            "skills": {"count": 2, "options": ["Animal Handling", "Athletics", "Intimidation", "Nature", "Perception", "Survival"]}
+            "saving_throws": ["str", "con"],
+            "skills": {"count": 2, "options": ["animal handling", "athletics", "intimidation", "nature", "perception", "survival"]}
         }
     },
     "Bard": {
@@ -150,9 +150,9 @@ classes = {
         "proficiencies": {
             "armor": ["light"],
             "weapons": ["simple", "hand crossbows", "longswords", "rapiers", "shortswords"],
-            "tools": ["choice of musical intstrument","choice of musical intstrument","choice of musical intstrument"],
-            "saving_throws": ["DEX", "CHA"],
-            "skills": {"count": 3, "options": ["Any"]}
+            "tools": ["choice of musical instrument","choice of musical instrument","choice of musical instrument"],
+            "saving_throws": ["dex", "cha"],
+            "skills": {"count": 3, "options": ["any"]}
         }
     },
     "Cleric": {
@@ -169,8 +169,8 @@ classes = {
             "armor": ["light", "medium", "shields"],
             "weapons": ["simple"],
             "tools": [],
-            "saving_throws": ["WIS", "CHA"],
-            "skills": {"count": 2, "options": ["History", "Insight", "Medicine", "Persuasion", "Religion"]}
+            "saving_throws": ["wis", "cha"],
+            "skills": {"count": 2, "options": ["history", "insight", "medicine", "persuasion", "religion"]}
         }
     },
     "Druid": {
@@ -186,8 +186,8 @@ classes = {
             "armor": ["light", "medium", "shields (non-metal)"],
             "weapons": ["clubs", "daggers", "darts", "javelins", "maces", "quarterstaffs", "scimitars", "sickles", "slings", "spears"],
             "tools": ["herbalism kit"],
-            "saving_throws": ["INT", "WIS"],
-            "skills": {"count": 2, "options": ["Animal Handling", "Arcana", "Insight", "Medicine", "Nature", "Perception", "Religion", "Survival"]}
+            "saving_throws": ["int", "wis"],
+            "skills": {"count": 2, "options": ["animal handling", "arcana", "insight", "medicine", "nature", "perception", "religion", "survival"]}
         }
     },
     "Fighter": {
@@ -202,8 +202,8 @@ classes = {
             "armor": ["all armor", "shields"],
             "weapons": ["simple", "martial"],
             "tools": [],
-            "saving_throws": ["STR", "CON"],
-            "skills": {"count": 2, "options": ["Acrobatics", "Animal Handling", "Athletics", "History", "Insight", "Intimidation", "Perception", "Survival"]}
+            "saving_throws": ["str", "con"],
+            "skills": {"count": 2, "options": ["acrobatics", "animal handling", "athletics", "history", "insight", "intimidation", "perception", "survival"]}
         }
     },
     "Monk": {
@@ -216,9 +216,9 @@ classes = {
         "proficiencies": {
             "armor": ["none"],
             "weapons": ["simple", "shortswords"],
-            "tools": ["choice of one type of artisan's tools or choice ofmusical instrument"],
-            "saving_throws": ["STR", "DEX"],
-            "skills": {"count": 2, "options": ["Acrobatics", "Athletics", "History", "Insight", "Religion", "Stealth"]}
+            "tools": ["choice of one type of artisan's tools or choice of musical instrument"],
+            "saving_throws": ["str", "dex"],
+            "skills": {"count": 2, "options": ["acrobatics", "athletics", "history", "insight", "religion", "stealth"]}
         }
     },
     "Paladin": {
@@ -234,8 +234,8 @@ classes = {
             "armor": ["all armor", "shields"],
             "weapons": ["simple", "martial"],
             "tools": [],
-            "saving_throws": ["WIS", "CHA"],
-            "skills": {"count": 2, "options": ["Athletics", "Insight", "Intimidation", "Medicine", "Persuasion", "Religion"]}
+            "saving_throws": ["wis", "cha"],
+            "skills": {"count": 2, "options": ["athletics", "insight", "intimidation", "medicine", "persuasion", "religion"]}
         }
     },
     "Ranger": {
@@ -250,8 +250,8 @@ classes = {
             "armor": ["light", "medium", "shields"],
             "weapons": ["simple", "martial"],
             "tools": [],
-            "saving_throws": ["STR", "DEX"],
-            "skills": {"count": 3, "options": ["Animal Handling", "Athletics", "Insight", "Investigation", "Nature", "Perception", "Stealth", "Survival"]}
+            "saving_throws": ["str", "dex"],
+            "skills": {"count": 3, "options": ["animal handling", "athletics", "insight", "investigation", "nature", "perception", "stealth", "survival"]}
         }
     },
     "Rogue": {
@@ -268,8 +268,8 @@ classes = {
             "armor": ["light"],
             "weapons": ["simple", "hand crossbows", "longswords", "rapiers", "shortswords"],
             "tools": ["thieves' tools"],
-            "saving_throws": ["DEX", "INT"],
-            "skills": {"count": 4, "options": ["Acrobatics", "Athletics", "Deception", "Insight", "Intimidation", "Investigation", "Perception", "Performance", "Persuasion", "Sleight of Hand", "Stealth"]}
+            "saving_throws": ["dex", "int"],
+            "skills": {"count": 4, "options": ["acrobatics", "athletics", "deception", "insight", "intimidation", "investigation", "perception", "performance", "persuasion", "sleight of hand", "stealth"]}
         }
     },
     "Sorcerer": {
@@ -284,8 +284,8 @@ classes = {
             "armor": ["none"],
             "weapons": ["daggers", "darts", "slings", "quarterstaffs", "light crossbows"],
             "tools": [],
-            "saving_throws": ["CON", "CHA"],
-            "skills": {"count": 2, "options": ["Arcana", "Deception", "Insight", "Intimidation", "Persuasion", "Religion"]}
+            "saving_throws": ["con", "cha"],
+            "skills": {"count": 2, "options": ["arcana", "deception", "insight", "intimidation", "persuasion", "religion"]}
         }
     },
     "Warlock": {
@@ -302,8 +302,8 @@ classes = {
             "armor": ["light"],
             "weapons": ["simple"],
             "tools": [],
-            "saving_throws": ["WIS", "CHA"],
-            "skills": {"count": 2, "options": ["Arcana", "Deception", "History", "Intimidation", "Investigation", "Nature", "Religion"]}
+            "saving_throws": ["wis", "cha"],
+            "skills": {"count": 2, "options": ["arcana", "deception", "history", "intimidation", "investigation", "nature", "religion"]}
         }
     },
     "Wizard": {
@@ -318,14 +318,13 @@ classes = {
             "armor": ["none"],
             "weapons": ["daggers", "darts", "slings", "quarterstaffs", "light crossbows"],
             "tools": [],
-            "saving_throws": ["INT", "WIS"],
-            "skills": {"count": 2, "options": ["Arcana", "History", "Insight", "Investigation", "Medicine", "Religion"]}
+            "saving_throws": ["int", "wis"],
+            "skills": {"count": 2, "options": ["arcana", "history", "insight", "investigation", "medicine", "religion"]}
         }
     }
 }
 
 languages = ["Common", "Dwarvish", "Elvish", "Giant", "Gnomish", "Goblin", "Halfling", "Orc", "Abyssal", "Celestial", "Draconic", "Deep Speech", "Infernal", "Primordial", "Sylvan", "Undercommon"]
-
 
 weapons = {
     "martial":{
@@ -348,3 +347,5 @@ gaming_sets = ["dice set", "dragonchess set", "playing card set", "three-dragon 
 skills = ["acrobatics", "animal handling", "arcana", "athletics", "deception", "history", "insight", "intimidation", "investigation", "medicine", "nature", "perception", "performance", "persuasion", "religion", "sleight of hand", "stealth", "survival"]
 
 tools = ["alchemist's supplies", "brewer's supplies", "calligrapher's supplies", "carpenter's tools", "cartographer's tools", "cobbler's tools", "cook's utensils", "glassblower's tools", "jeweler's tools", "leatherworker's tools", "mason's tools", "smith's tools", "tinker's tools", "weaver's tools", "woodcarver's tools"]
+
+

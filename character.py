@@ -1,7 +1,7 @@
 from operator import index
 
 import database
-from inputchecks import language_check
+from inputchecks import language_check, validation_check
 
 class Character:
     def __init__(self, name, Class, background, race, strength, dexterity, constitution, intelligence, wisdom, charisma):
@@ -15,6 +15,17 @@ class Character:
         self.intelligence = intelligence
         self.wisdom = wisdom
         self.charisma = charisma
+
+    def get_data_from_database(self): #inside this funtion we are going to get all the relevant data from database.py
+        self.race_modifiers()
+        self.get_languages()
+        self.get_equipment()
+        self.get_skill_proficiencies()
+        self.get_tool_proficiencies()
+        self.gold = database.backgrounds[self.background]["gold"]
+        self.weapon_proficiencies = database.classes[self.Class]["proficiencies"]["weapons"]
+        self.armor_proficiencies = database.classes[self.Class]["proficiencies"]["armor"]
+        self.saving_throw_proficiencies = database.classes[self.Class]["proficiencies"]["saving_throws"]
         
     def race_modifiers(self):
         # uses the data from database.py to calculate the ability score modifiers for the character based on their race.
@@ -70,57 +81,43 @@ class Character:
 
     def return_character_sheet(self):
         # this function will return a string representation of the character sheet, which we can then print to the console or save to a file.
-        character_sheet = f"Name: {self.name}\nClass: {self.Class}\nBackground: {self.background}\nRace: {self.race}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nConstitution: {self.constitution}\nIntelligence: {self.intelligence}\nWisdom: {self.wisdom}\nCharisma: {self.charisma}\nEquipment: {', '.join(self.equipment)}\nLanguages: {', '.join(self.languages)}\nSkill Proficiencies: {', '.join(self.skill_proficiencies)}\nTool Proficiencies: {', '.join(self.tool_proficiencies)}\nGold: {self.gold}"
+        character_sheet = f"Name: {self.name}\nClass: {self.Class}\nBackground: {self.background}\nRace: {self.race}\nStrength: {self.strength}\nDexterity: {self.dexterity}\nConstitution: {self.constitution}\nIntelligence: {self.intelligence}\nWisdom: {self.wisdom}\nCharisma: {self.charisma}\nEquipment: {', '.join(self.equipment)}\nLanguages: {', '.join(self.languages)}\nSkill Proficiencies: {', '.join(self.skill_proficiencies)}\nTool Proficiencies: {', '.join(self.tool_proficiencies)}\nWeapon Proficiencies: {', '.join(self.weapon_proficiencies)}\nArmor Proficiencies: {', '.join(self.armor_proficiencies)}\nGold: {self.gold}"
         return character_sheet
     
-    def get_data_from_database(self): #inside this funtion we are going to get all the relevant data from database.py
-        self.race_modifiers()
-        self.get_languages()
-        self.get_equipment()
-        self.get_skill_proficiencies()
-        self.get_tool_proficiencies()
-        self.gold = database.backgrounds[self.background]["gold"]
-
-    
-    def get_extra_language_options(self):
-        # this function will check for any extra language options that the user can choose based on their class, background, or race, and then prompt the user to choose those options, and then store those options in the character object so that we can use that data later when we print the character sheet or save it to a file.
-        if "one extra" in self.languages:
-            print("You have an extra language option from your race. Which language do you want to learn? (choose from: " + ", ".join(database.languages) + ")")
-            self.add_language(input().capitalize())
-            self.languages.remove("one extra") # we remove the "one extra"
-        if "one of your choice" in self.languages:
-            print("You have an extra language option from your background. Which language do you want to learn? (choose from: " + ", ".join(database.languages) + ")")
-            self.add_language(input().capitalize())
-            self.languages.remove("one of your choice") # we remove the "one of your choice"
-        if "two of your choice" in self.languages:
-            print("You have two extra language options from your background. Which languages do you want to learn? (choose from: " + ", ".join(database.languages) + ")")
-            print("First language:")
-            self.add_language(input().capitalize())
-            print("Second language:")
-            self.add_language(input().capitalize())
-            self.languages.remove("two of your choice") # we remove the "two of your choice"
-
-    def is_language_duplicate(self, language): #checks if languague is already in self.languages
-        if language in self.languages:
-            return True
-        return False
-
     def get_languages(self):
         self.languages = [] # initialize the languages
         self.languages.extend(database.races[self.race]["languages"])
         self.languages.extend(database.backgrounds[self.background]["languages"])
-        self.get_extra_language_options() 
+        self.get_languages_options()
 
-    def add_language(self, language):
-        if language_check(language):
-            if not self.is_language_duplicate(language):
-                self.languages.append(language.capitalize())
-            else:
-                print("Your character already knows that language. Please choose a different language.")
-                self.add_language(input().capitalize())
-        else:
-            print("Please enter a valid language (choose from: " + ", ".join(database.languages) + ").")
-            self.add_language(input().capitalize())
+    def get_languages_options(self):
+        # this function will check for any extra language options that the user can choose based on their race and background, and then prompt the user to choose those options, and then store the chosen options in the character object so that we can use that data later when we print the character sheet.
+        for item in self.languages:
+            index = self.languages.index(item)
+            if "extra" in item:
+                if "two" in item:
+                    print("You have two language options. Which languages do you want to choose? (choose from: " + ", ".join(database.languages) + ")")
+                    for i in range(2):
+                        if i == 1: # prompt for the second language option
+                            print("You have one more language option. Which language do you want to choose? (choose from: " + ", ".join(database.languages) + ")")
+                        choice = input().lower()
+                        choice = validation_check(choice, database.languages, self.languages, "language")
+                        while choice == None:
+                            print("You have a language option. Which language do you want to choose? (choose from: " + ", ".join(database.languages) + ")")
+                            choice = input().lower()
+                            choice = validation_check(choice, database.languages, self.languages, "language")
+                        self.languages[index] = choice
+                else:
+                    print("You have a language option. Which language do you want to choose? (choose from: " + ", ".join(database.languages) + ")")
+                    choice = input().lower()
+                    choice = validation_check(choice, database.languages, self.languages, "language")
+                    while choice == None:
+                        print("You have a language option. Which language do you want to choose? (choose from: " + ", ".join(database.languages) + ")")
+                        choice = input().lower()
+                        choice = validation_check(choice, database.languages, self.languages, "language")
+                    self.languages[index] = choice
+
+            
 
     def get_equipment(self):
         self.equipment = [] # initialize the equipment
@@ -133,7 +130,7 @@ class Character:
         # this function will check for any extra equipment options that the user can choose based on their class and background, and then prompt the user to choose those options.
         for item in self.equipment:
             index = self.equipment.index(item)
-            choice = ""
+            choice = "" 
             if "option" in item:
                 print("You have an equipment option. Which one do you want to choose? (choose from: " + " OR ".join(item["option"]) + ")")
                 choice = input().lower()
@@ -141,7 +138,7 @@ class Character:
                     print("Please enter a valid choice (choose from: " + " OR ".join(item["option"]) + ").")
                     choice = input().lower()
                 self.equipment[index] = choice
-            if choice == "": #if there were no options to choose we normalize choice and move on with the checks
+            if choice == "": #this is to check if there was an option or a choice of (there are probably better ways to do this but this is the way I am doing it for now)
                 choice = item
             if "choice of" in choice:
                 self.get_weapons_options(choice,index)
@@ -236,19 +233,28 @@ class Character:
         # this function will check for any extra skill proficiency options that the user can choose based on their class and background, and then prompt the user to choose those options.
         times_to_choose = database.classes[self.Class]["proficiencies"]["skills"]["count"]
         if times_to_choose > 0:
-            print(f"You have {times_to_choose} skill proficiency options from your class. Which skill proficiencies do you want to choose? (choose from: " + ", ".join(database.skills) + ")")
-            for i in range(times_to_choose):
-                choice = input().lower()
-                while choice not in database.skills:
-                    print("Please enter a valid choice (choose from: " + ", ".join(database.skills) + ").")
+            #special clause for any
+            if "any" in database.classes[self.Class]["proficiencies"]["skills"]["options"]:
+                print(f"You have {times_to_choose} skill proficiency options from your class. Which skill proficiencies do you want to choose? (choose from: " + ", ".join(database.skills) + ")")
+                for i in range(times_to_choose):
                     choice = input().lower()
-                while choice in self.skill_proficiencies:
-                    print("Your character already has that skill proficiency. Please choose a different skill proficiency.")
+                    choice = validation_check(choice,database.skills, self.skill_proficiencies, "skill proficiency")
+                    while choice == None:
+                        choice = input().lower()
+                        choice = validation_check(choice,database.skills, self.skill_proficiencies, "skill proficiency")
+                    self.skill_proficiencies.append(choice)
+                    i -= 1 # we decrement i and append
+            else:
+                print(f"You have {times_to_choose} skill proficiency options from your class. Which skill proficiencies do you want to choose? (choose from: " + ", ".join(database.classes[self.Class]["proficiencies"]["skills"]["options"]) + ")")
+                for i in range(times_to_choose):
                     choice = input().lower()
-                print(f"You have chosen {choice} as a skill proficiency.")
-                self.skill_proficiencies.append(choice)
-                i -= 1 # we decrement i and append
-
+                    choice = validation_check(choice,database.classes[self.Class]["proficiencies"]["skills"]["options"], self.skill_proficiencies, "skill proficiency")
+                    while choice == None:
+                        choice = input().lower()
+                        choice = validation_check(choice,database.classes[self.Class]["proficiencies"]["skills"]["options"], self.skill_proficiencies, "skill proficiency")
+                    self.skill_proficiencies.append(choice)
+                    i -= 1 # we decrement i and append
+    
     def get_tool_proficiencies(self):
         self.tool_proficiencies = [] # initialize the tool proficiencies
         self.tool_proficiencies.extend(database.backgrounds[self.background]["tools"])
@@ -260,7 +266,7 @@ class Character:
             index = self.tool_proficiencies.index(item)
             choice = ""
             if "choice of" in item:
-                if "choice of one type of artisan's tools or choice ofmusical instrument" in item:
+                if "choice of one type of artisan's tools or choice of musical instrument" in item:
                     print("You have a tool proficiency option. Do you want to choose an artisan's tool or a musical instrument? (enter 'artisan' or 'musical instrument')")
                     choice = input().lower()
                     while choice not in ["artisan", "musical instrument"]:
@@ -317,4 +323,6 @@ class Character:
                         choice = input().lower()
                     self.tool_proficiencies[index] = choice
                 
-    
+
+
+

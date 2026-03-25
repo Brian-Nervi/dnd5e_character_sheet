@@ -28,7 +28,17 @@ def stats_check(stats):
             return True
     return False
 
-def language_check(language): #only checks if the language is valid, does not check for duplicates. returns True or false if false
-    valid_languages = database.languages
-    return language.capitalize() in [l.capitalize() for l in valid_languages]
 
+ #this is used when you need to check if a choice is valid and if it has been chosen already. 
+def validation_check(choice, database_list, char_database_list, type_of_choice):
+    if choice.lower() in database_list: # if choice is valid
+        if choice.lower() not in char_database_list: # if choice hasnt been chosen already
+            print(f"You have chosen {choice} as a {type_of_choice}.")
+            return choice # good case
+        else: 
+            print(f"You have already have {choice} as a {type_of_choice}. Please choose a different {type_of_choice} from ({', '.join([c for c in database_list if c not in char_database_list])}).")
+            return None #if choice is valid but has been chosen already return None
+    print(f"{choice} is not a valid {type_of_choice}. Please choose a valid {type_of_choice}.")
+    return None #if choice is not valid return None
+             
+    
