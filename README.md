@@ -5,3 +5,6 @@ TO ADD:
 Visual interface
 level up helper
 add point buy system
+
+
+Abandoned i think i done enough and moved on
